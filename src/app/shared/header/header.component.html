@@ -12,29 +12,35 @@
     </svg>
   </label>
   <div class="ae-container-fluid rk-topbar">
-    <h1 class="rk-logo"><a href="index.html">Lombardo's Carteras Portfolio<sup>cr</sup></a></h1>
+    <h1 class="rk-logo">
+      <a routerLink="">Lombardo's Carteras Portafolio
+        <sup>cr</sup>
+      </a>
+    </h1>
     <nav class="rk-navigation">
       <ul class="rk-menu">
-        <li class="rk-menu__item"><a href="index.html" class="rk-menu__link">Home</a>
+        <li routerLinkActive="active" class="rk-menu__item">
+          <a routerLink="home" class="rk-menu__link">Home</a>
         </li>
-        <li class="active rk-menu__item"><a href="portfolio.html" class="rk-menu__link">Portfolio</a>
-        </li>
-        <li class="rk-menu__item"><a href="blog.html" class="rk-menu__link">Blog</a>
-        </li>
-        <li class="rk-menu__item"><a href="#0" class="rk-menu__link">Pages</a>
+        <li class="rk-menu__item">
+          <a class="rk-menu__link">Lo que viene</a>
+
           <nav class="rk-menu__sub">
             <ul class="rk-container">
-              <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">Sobre Nosotras</a></li>
-              <li class="rk-menu__item"><a href="documentation.html" class="rk-menu__link">Documentación</a></li>
-              <li class="rk-menu__item"><a href="design-styles.html" class="rk-menu__link">Diseños & Estilos</a></li>
+              <li routerLinkActive="active" class="rk-menu__item">
+                <a routerLink="item" class="rk-menu__link">Diseños & Estilos</a>
+              </li>
             </ul>
           </nav>
+
         </li>
-        <li class="rk-menu__item"><a href="contact.html" class="rk-menu__link">Contact Us</a>
+        <li routerLinkActive="active" class="rk-menu__item">
+          <a href="contact.html" class="rk-menu__link">Contáctenos</a>
+        </li>
+        <li routerLinkActive="active" class="rk-menu__item">
+          <a routerLink="about" class="rk-menu__link">Sobre Nosotras</a>
         </li>
       </ul>
-
-
       <form class="rk-search">
         <input type="text" placeholder="Busqueda" id="urku-search" class="rk-search-field">
         <label for="urku-search">
@@ -43,8 +49,6 @@
           </svg>
         </label>
       </form>
-
-      
     </nav>
   </div>
 </header>
