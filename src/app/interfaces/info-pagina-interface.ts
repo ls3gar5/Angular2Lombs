@@ -9,3 +9,15 @@ export interface InfoPagina {
   instagram: string;
   equipo_trabajo: any[];
 }
+
+export interface InfoEquipo {
+
+    frase: string;
+    nombre: string;
+    subtitulo: string;
+    twitter: string;
+    url: string;
+  }
+
+
+
