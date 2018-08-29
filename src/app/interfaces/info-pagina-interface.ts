@@ -19,5 +19,12 @@ export interface InfoEquipo {
     url: string;
   }
 
+  export interface Producto {
+    categoria: string;
+    cod: string;
+    titulo: string;
+    url: string;
+}
+
 
 
