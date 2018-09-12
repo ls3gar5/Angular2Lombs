@@ -26,7 +26,7 @@ export class InfoPaginaService {
 
       this.cargada = true;
       this.info = resp;
-      console.log(resp); // resp es sin tipar por lo que no sabe q es.
+      // console.log(resp); // resp es sin tipar por lo que no sabe q es.
     });
   }
 
@@ -35,7 +35,7 @@ export class InfoPaginaService {
        this.http.get('https://lomb-bags.firebaseio.com/equipo.json')
        .subscribe( (resp: InfoEquipo) => {
          this.infoEquipo = resp;
-         console.log(resp); // resp es sin tipar por lo que no sabe q es.
+         // console.log(resp); // resp es sin tipar por lo que no sabe q es.
        });
   }
 }

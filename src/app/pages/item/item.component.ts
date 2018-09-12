@@ -17,7 +17,7 @@ export class ItemComponent implements OnInit {
   idItemInt: number;
   producto: Item;
   timer: string;
-
+// private route: ActivatedRoute es para recibir el parametro de la URL
   constructor(private route: ActivatedRoute,
             private router: Router,
             private _productoService: ProductosService,
