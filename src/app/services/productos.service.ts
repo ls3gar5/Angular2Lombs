@@ -9,7 +9,7 @@ import { Producto } from '../interfaces/info-pagina-interface';
 export class ProductosService {
 
   productos: Producto[] = [];
-  productosFiltrado: Producto[] =[];
+  productosFiltrado: Producto[] = [];
   cargando = true;
 
   cantidadItems: number;
