@@ -11,12 +11,15 @@ export class InfoPaginaService {
   info: InfoPagina;
   cargada = false;
   infoEquipo: InfoEquipo;
+  cargando = true;
 
   constructor(private http: HttpClient) {
     // console.log('Servicio InfoPagina')
 
     this.cargarInfo();
-    this.cargarEquipo();
+    this.cargarEquipo().then( (resp: boolean) => {
+      this.cargando = resp;
+    });
   }
 
   private cargarInfo() {
@@ -32,10 +35,13 @@ export class InfoPaginaService {
 
   private cargarEquipo() {
        // Leer JSON
-       this.http.get('https://lomb-bags.firebaseio.com/equipo.json')
-       .subscribe( (resp: InfoEquipo) => {
-         this.infoEquipo = resp;
-         // console.log(resp); // resp es sin tipar por lo que no sabe q es.
+       return new Promise ( (resolve, reject) => {
+          this.http.get('https://lomb-bags.firebaseio.com/equipo.json')
+          .subscribe( (resp: InfoEquipo) => {
+            this.infoEquipo = resp;
+            resolve(false);
+            // console.log(resp); // resp es sin tipar por lo que no sabe q es.
+          });
        });
   }
 }
