@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from '../../services/productos.service';
 import { InfoPaginaService } from '../../services/info-pagina.service';
@@ -18,8 +18,8 @@ export class ItemComponent implements OnInit {
   producto: Item;
   timer: string;
 // private route: ActivatedRoute es para recibir el parametro de la URL
-  constructor(private route: ActivatedRoute,
-            private router: Router,
+  constructor(@Inject(Router) private route: ActivatedRoute,
+            @Inject(Router) private router: Router,
             private _productoService: ProductosService,
             public _infoPaginaService: InfoPaginaService) {
               this.timer = moment().format('DD/MM/YYYY');

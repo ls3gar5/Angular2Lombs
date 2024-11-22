@@ -29,7 +29,7 @@ export class ProductosService {
 
           this.cantidadItems = this.productos.length;
 
-          resolve();
+          resolve(true);
       });
     });
   }
