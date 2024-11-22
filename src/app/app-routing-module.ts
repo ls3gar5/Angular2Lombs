@@ -4,6 +4,7 @@ import { PortafolioComponent } from './pages/portafolio/portafolio.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ItemComponent } from './pages/item/item.component';
 import { SearchComponent } from './pages/search/search.component';
+import { CommonModule } from '@angular/common';
 
 const app_routes: Routes = [
     { path: 'home', component: PortafolioComponent },
@@ -15,11 +16,10 @@ const app_routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(app_routes, {useHash: true})
+        CommonModule,
+        RouterModule.forRoot(app_routes)
     ],
-    exports: [
-        RouterModule
-    ]
+    exports: [RouterModule]
 })
 
 export class AppRoutingModulo {

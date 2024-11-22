@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from '../../services/productos.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ProductosService } from '../../services/productos.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
+  constructor(@Inject(Router) private route: ActivatedRoute,
     public _productosService: ProductosService) { }
 
   ngOnInit() {
