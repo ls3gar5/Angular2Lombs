@@ -6,7 +6,7 @@ import { ItemComponent } from './pages/item/item.component';
 import { SearchComponent } from './pages/search/search.component';
 import { CommonModule } from '@angular/common';
 
-const app_routes: Routes = [
+export const app_routes: Routes = [
     { path: 'home', component: PortafolioComponent },
     { path: 'about', component: AboutComponent },
     { path: 'item/:id', component: ItemComponent },

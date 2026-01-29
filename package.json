@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/compiler": "^19.0.0",
     "@angular/core": "^19.0.0",
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
@@ -19,7 +20,8 @@
     "rxjs": "^7.8.1",
     "core-js": "^2.5.4",
     "moment": "^2.22.2",
-    "form-data": "^2.5.4"
+    "form-data": "^2.5.4",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular/cli": "^19.0.0",
@@ -44,10 +46,10 @@
   "overrides": {
     "glob": "^10.5.0",
     "protractor": {
-      "webdriver-manager":{
-        "request":{
-            "form-data": "^2.5.4"
-          }
+      "webdriver-manager": {
+        "request": {
+          "form-data": "^2.5.4"
+        }
       }
     }
   }

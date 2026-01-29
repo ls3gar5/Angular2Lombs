@@ -1,24 +1,27 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ProductosService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  standalone: true,
+  imports: [CommonModule, RouterModule]
 })
 export class SearchComponent implements OnInit {
 
-  constructor(@Inject(Router) private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
     public _productosService: ProductosService) { }
 
   ngOnInit() {
 
-  this.route.params
-  .subscribe(params => {
-    // console.log(params['termino']);
-    this._productosService.buscarProducto(params['termino']);
-  });
+    this.route.params
+      .subscribe(params => {
+        // console.log(params['termino']);
+        this._productosService.buscarProducto(params['termino']);
+      });
   }
 
 }
