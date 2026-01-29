@@ -17,7 +17,7 @@ export class InfoPaginaService {
     // console.log('Servicio InfoPagina')
 
     this.cargarInfo();
-    this.cargarEquipo().then( (resp: boolean) => {
+    this.cargarEquipo().then((resp: boolean) => {
       this.cargando = resp;
     });
   }
@@ -25,23 +25,23 @@ export class InfoPaginaService {
   private cargarInfo() {
     // Leer JSON
     this.http.get('assets/data/data-pagina.json')
-    .subscribe( (resp: InfoPagina) => {
+      .subscribe((resp: InfoPagina) => {
 
-      this.cargada = true;
-      this.info = resp;
-      // console.log(resp); // resp es sin tipar por lo que no sabe q es.
-    });
+        this.cargada = true;
+        this.info = resp;
+        // console.log(resp); // resp es sin tipar por lo que no sabe q es.
+      });
   }
 
   private cargarEquipo() {
-       // Leer JSON
-       return new Promise ( (resolve, reject) => {
-          this.http.get('https://lomb-bags.firebaseio.com/equipo.json')
-          .subscribe( (resp: InfoEquipo) => {
-            this.infoEquipo = resp;
-            resolve(false);
-            // console.log(resp); // resp es sin tipar por lo que no sabe q es.
-          });
-       });
+    // Leer JSON
+    return new Promise((resolve, reject) => {
+      this.http.get('assets/data/equipo.json')
+        .subscribe((resp: InfoEquipo) => {
+          this.infoEquipo = resp;
+          resolve(false);
+          // console.log(resp); // resp es sin tipar por lo que no sabe q es.
+        });
+    });
   }
 }

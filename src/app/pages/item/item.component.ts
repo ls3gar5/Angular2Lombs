@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ProductosService } from '../../services/productos.service';
 import { InfoPaginaService } from '../../services/info-pagina.service';
 import { Item } from '../../interfaces/info-pagina-interface';
@@ -8,7 +9,9 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
+  standalone: true,
+  imports: [CommonModule, RouterModule]
 })
 
 export class ItemComponent implements OnInit {
@@ -17,13 +20,13 @@ export class ItemComponent implements OnInit {
   idItemInt: number;
   producto: Item;
   timer: string;
-// private route: ActivatedRoute es para recibir el parametro de la URL
-  constructor(@Inject(Router) private route: ActivatedRoute,
-            @Inject(Router) private router: Router,
-            private _productoService: ProductosService,
-            public _infoPaginaService: InfoPaginaService) {
-              this.timer = moment().format('DD/MM/YYYY');
-            }
+  // private route: ActivatedRoute es para recibir el parametro de la URL
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private _productoService: ProductosService,
+    public _infoPaginaService: InfoPaginaService) {
+    this.timer = moment().format('DD/MM/YYYY');
+  }
 
   // [style.background]="'url(assets/productos/'+ idItem + '/main.jpg)'"
 
@@ -37,15 +40,15 @@ export class ItemComponent implements OnInit {
 
       this._productoService.getProducto(this.idItem)
         .subscribe((resp: Item) => {
-            this.producto = resp;
-      });
+          this.producto = resp;
+        });
 
 
     });
 
   }
 
-  public nextPage () {
+  public nextPage() {
     if (this.idItemInt > this._productoService.cantidadItems) {
       this.idItemInt = 1;
     }

@@ -18,9 +18,9 @@ export class ProductosService {
   }
 
   public cargarPorductos() {
-    return new Promise( (resolve, reject) => {
-      this.http.get('https://lomb-bags.firebaseio.com/productos_idx.json')
-      .subscribe( (resp: Producto[]) => {
+    return new Promise((resolve, reject) => {
+      this.http.get('assets/data/productos_idx.json')
+        .subscribe((resp: Producto[]) => {
           this.productos = resp;
           // console.log(this.productos);
           setTimeout(() => {
@@ -30,19 +30,19 @@ export class ProductosService {
           this.cantidadItems = this.productos.length;
 
           resolve(true);
-      });
+        });
     });
   }
 
   public getProducto(id: string) {
     // estoy retornando un observable para suscribir donde lo querio usar.
-    return this.http.get(`https://lomb-bags.firebaseio.com/productos/${id}.json`);
+    return this.http.get(`assets/data/productos/${id}.json`);
   }
 
   public buscarProducto(termino: string) {
 
     if (this.productos.length === 0) {
-      this.cargarPorductos().then( () => {
+      this.cargarPorductos().then(() => {
         this.filtrarProductos(termino);
       });
     } else {
@@ -54,9 +54,9 @@ export class ProductosService {
 
   private filtrarProductos(termino: string) {
 
-    this.productosFiltrado =  this.productos.filter(producto => {
+    this.productosFiltrado = this.productos.filter(producto => {
       return producto.categoria.toUpperCase().includes(termino.toUpperCase())
-      || producto.titulo.toUpperCase().includes(termino.toUpperCase());
+        || producto.titulo.toUpperCase().includes(termino.toUpperCase());
     });
   }
 }
